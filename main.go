@@ -18,6 +18,7 @@ func main() {
 
 	go func(ch chan<- int, wg *sync.WaitGroup) {
 		ch <- 42
+		close(ch)
 		wg.Done()
 	}(ch, wg)
 
